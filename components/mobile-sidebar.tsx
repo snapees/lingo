@@ -1,7 +1,7 @@
 import {
   Sheet,
   SheetContent,
-  // SheetTitle,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Sidebar } from "@/components/sidebar";
@@ -14,9 +14,9 @@ export const MobileSidebar = () => {
         <Menu className="text-white" />
       </SheetTrigger>
       <SheetContent className="p-0 z-[100]" side="left">
-        {/* <SheetTitle> */}
-        <Sidebar />
-        {/* </SheetTitle> */}
+        <SheetTitle>
+          <Sidebar />
+        </SheetTitle>
       </SheetContent>
     </Sheet>
   );
