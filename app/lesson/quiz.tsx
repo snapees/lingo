@@ -47,10 +47,10 @@ export const Quiz = ({
   const { width, height } = useWindowSize();
   const router = useRouter();
 
-  const [finishAudio] = useAudio({
-    src: "/finish.mp3",
-    autoPlay: true,
-  });
+  // const [finishAudio] = useAudio({
+  //   src: "/finish.mp3",
+  //   autoPlay: true,
+  // });
   const [correctAudio, _c, correctControls] = useAudio({
     src: "/correct.wav",
   });
@@ -155,7 +155,7 @@ export const Quiz = ({
   if (!challenge) {
     return (
       <>
-        {finishAudio}
+        {/* {finishAudio} */}
         <Confetti
           recycle={false}
           numberOfPieces={500}
