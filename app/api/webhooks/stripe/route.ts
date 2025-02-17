@@ -8,7 +8,7 @@ import Stripe from "stripe";
 
 export async function POST(req: Request) {
   const body = await req.text();
-  //   @ts-ignore
+  // @ts-expect-error: headers().get() returns a string or null, but TypeScript infers it as null
   const signature = headers().get("Stripe-Signature") as string;
 
   let event: Stripe.Event;
@@ -19,8 +19,10 @@ export async function POST(req: Request) {
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
-  } catch (error: any) {
-    return new NextResponse(`Webhook error: ${error.message}`, { status: 400 });
+  } catch (error) {
+    return new NextResponse(`Webhook error: ${(error as Error).message}`, {
+      status: 400,
+    });
   }
 
   const session = event.data.object as Stripe.Checkout.Session;

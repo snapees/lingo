@@ -25,7 +25,7 @@ type Props = {
     completed: boolean;
     challengeOptions: (typeof challengeOptions.$inferSelect)[];
   })[];
-  userSubscription: any; // TODO: Replace with subscription db type
+  userSubscription: { isActive: boolean };
 };
 
 export const Quiz = ({
@@ -51,10 +51,10 @@ export const Quiz = ({
   //   src: "/finish.mp3",
   //   autoPlay: true,
   // });
-  const [correctAudio, _c, correctControls] = useAudio({
+  const [correctAudio, , correctControls] = useAudio({
     src: "/correct.wav",
   });
-  const [incorrectAudio, _i, incorrectControls] = useAudio({
+  const [incorrectAudio, , incorrectControls] = useAudio({
     src: "/incorrect.wav",
   });
 
