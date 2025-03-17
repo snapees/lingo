@@ -3,9 +3,7 @@ import { redirect } from "next/navigation";
 import { Quiz } from "../quiz";
 
 type Props = {
-  params: {
-    lessonId: number;
-  };
+  params: Promise<{ lessonId: number }>;
 };
 
 const LessonIdPage = async ({ params }: Props) => {
@@ -33,7 +31,7 @@ const LessonIdPage = async ({ params }: Props) => {
       initialLessonChallenges={lesson.challenges}
       initialHearts={userProgress.hearts}
       initialPercentage={initialPercentage}
-      userSubscription={null} // TODO: Add a user subscription
+      // userSubscription={undefined} // TODO: Add a user subscription
     />
   );
 };
